@@ -7,7 +7,7 @@ namespace DiscordBotTemplate.Commands
     public class Basic : BaseCommandModule
     {
         [Command("test")]
-        public async Task TestCommand(CommandContext ctx) 
+        public async Task TestCommand(CommandContext ctx)
         {
             await ctx.Channel.SendMessageAsync("Test Message");
         }

@@ -55,6 +55,7 @@ namespace DiscordBotTemplate
             //7. Register your commands
 
             Commands.RegisterCommands<Basic>();
+            Commands.RegisterCommands<ticketing>();
 
             //8. Connect to get the Bot online
             await Client.ConnectAsync();
