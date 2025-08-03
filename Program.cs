@@ -14,6 +14,8 @@ namespace DiscordBotTemplate
     {
         public static DiscordClient Client { get; private set; }
         public static CommandsNextExtension Commands { get; private set; }
+        private static Ticketing _ticketing;
+
         static async Task Main(string[] args)
         {
             //1. Get the details of your config.json file by deserialising it
@@ -55,11 +57,18 @@ namespace DiscordBotTemplate
             //7. Register your commands
 
             Commands.RegisterCommands<Basic>();
-            Commands.RegisterCommands<ticketing>();
+            Commands.RegisterCommands<Ticketing>();
+            _ticketing = new Ticketing();
+            Client.ComponentInteractionCreated += async (s, e) => await _ticketing.HandleInteraction(e);
+
 
             //8. Connect to get the Bot online
             await Client.ConnectAsync();
             await Task.Delay(-1);
+        }
+        public static DiscordClient GetClient()
+        {
+            return Client;
         }
 
         private static Task OnClientReady(DiscordClient sender, ReadyEventArgs e)

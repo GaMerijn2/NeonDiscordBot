@@ -155,7 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Basic.cs" />
-    <Compile Include="Commands\ticketing.cs" />
+    <Compile Include="Commands\Ticketing.cs" />
     <Compile Include="Config\JSONReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
